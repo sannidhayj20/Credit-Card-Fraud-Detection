@@ -51,6 +51,8 @@ The primary goal of this project is to build a machine learning model that can a
   axs[1].set_title('Illegal Transaction Amount Distribution')
   plt.show()
  ```
+![image](https://github.com/user-attachments/assets/ed4eb856-0b30-46f1-9c89-8daf55d84ef0)
+
 
 - **Correlation Analysis:**
  ```python
@@ -65,7 +67,7 @@ The primary goal of this project is to build a machine learning model that can a
   plt.grid(axis='y', linestyle='--', alpha=0.7)
   plt.show()
 ```
- 
+![image](https://github.com/user-attachments/assets/71962e6a-4b96-4d1d-8cb8-97a4e580cf43)
 
 ## Feature Engineering
 

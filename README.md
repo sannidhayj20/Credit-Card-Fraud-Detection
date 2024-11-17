@@ -19,28 +19,28 @@ The primary goal of this project is to build a machine learning model that can a
 ## Data Preprocessing
 
 1. **Loading Data:**
-  python
+```python
    import pandas as pd
    data = pd.read_csv('/content/drive/MyDrive/creditcard.csv')
    df = data
-  
+  ```
 
 2. **Mounting Google Drive:**
-  python
+  ```python
    from google.colab import drive
    drive.mount('/content/drive')
-  
+  ```
 
 ## Exploratory Data Analysis
 
 - **Initial Data Exploration:**
- python
+ ```python
   print(data.head())
   print(data.describe())
- 
+ ```
 
 - **Distribution of Transaction Amounts:**
- python
+ ```python
   import matplotlib.pyplot as plt
   import seaborn as sns
 
@@ -50,10 +50,10 @@ The primary goal of this project is to build a machine learning model that can a
   sns.histplot(illegal_df['Amount'], bins=50, kde=True, ax=axs[1])
   axs[1].set_title('Illegal Transaction Amount Distribution')
   plt.show()
- 
+ ```
 
 - **Correlation Analysis:**
- python
+ ```python
   correlation_matrix = df.corr()
   correlation_with_class = correlation_matrix['Class'].drop('Class')
   plt.figure(figsize=(10, 6))
@@ -64,46 +64,47 @@ The primary goal of this project is to build a machine learning model that can a
   plt.xticks(rotation=45)
   plt.grid(axis='y', linestyle='--', alpha=0.7)
   plt.show()
+```
  
 
 ## Feature Engineering
 
 - **Filtering Most Correlated Features:**
- python
+ ```python
   most_correlated_features = correlation_with_class[correlation_with_class > 0].index.tolist()
- 
+ ```
 
 - **Heatmap of Top Correlated Features:**
- python
+ ```python
   correlation_matrix_filtered = correlation_matrix.loc[positive_correlation_features, positive_correlation_features]
   plt.figure(figsize=(10, 8))
   sns.heatmap(correlation_matrix_filtered, annot=True, cmap='coolwarm', fmt=".2f")
   plt.title('Correlation Heatmap of Features with Most Correlation to Class')
   plt.show()
- 
+``` 
 
 ## Model Training
 
 - **Training XGBoost Model:**
- python
+ ```python
   from xgboost import XGBClassifier
   model = XGBClassifier()
   model.fit(X_res, y_res)
- 
+ ```
 
 - **Cross-Validation:**
- python
+ ```python
   from sklearn.model_selection import cross_val_score
   model_cv = XGBClassifier(learning_rate=0.2, max_depth=7, n_estimators=300, use_label_encoder=False, eval_metric='logloss')
   scores = cross_val_score(model_cv, X_res, y_res, cv=10, scoring='accuracy')
   print("Cross-validation scores:", scores)
   print("Average cross-validation score:", scores.mean())
- 
+ ```
 
 ## Model Evaluation
 
 - **Validation and Testing:**
- python
+ ```python
   from sklearn.metrics import accuracy_score, roc_auc_score, classification_report, confusion_matrix
 
   # Validation
@@ -119,7 +120,7 @@ The primary goal of this project is to build a machine learning model that can a
   print("Test ROC-AUC:", roc_auc_score(y_test, y_test_proba))
   print("Confusion Matrix:\n", confusion_matrix(y_test, y_test_pred))
   print("Classification Report:\n", classification_report(y_test, y_test_pred))
- 
+ ```
 
 ## Conclusion
 

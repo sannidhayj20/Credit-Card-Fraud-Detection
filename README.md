@@ -129,10 +129,9 @@ This project successfully demonstrates the use of XGBoost for credit card fraud 
 ## How to Run
 
 1. Clone the repository and navigate to the project directory:
-   bash
-   git clone <repository-url>
-   cd <project-directory>
-   
+   ```bash
+   git clone https://github.com/sannidhayj20/Credit-Card-Fraud-Detection.git
+   ```
 
 2. Install the required packages:
    bash

@@ -84,6 +84,7 @@ The primary goal of this project is to build a machine learning model that can a
   plt.title('Correlation Heatmap of Features with Most Correlation to Class')
   plt.show()
 ``` 
+![image](https://github.com/user-attachments/assets/29deba26-15b1-49af-867f-24af32209073)
 
 ## Model Training
 
@@ -123,6 +124,8 @@ The primary goal of this project is to build a machine learning model that can a
   print("Confusion Matrix:\n", confusion_matrix(y_test, y_test_pred))
   print("Classification Report:\n", classification_report(y_test, y_test_pred))
  ```
+![image](https://github.com/user-attachments/assets/2f58fbd8-6082-4019-9187-07011530a32e)
+
 
 ## Conclusion
 
